@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CustomModal from '../CustomModal/CustomModal'; // Import the custom modal
+import CustomModal from '../CustomModal/CustomModal';
 
 const AddExpenseModal = ({ isOpen, onRequestClose, onAddExpense, editingExpense }) => {
   const [title, setTitle] = useState('');
@@ -26,7 +26,7 @@ const AddExpenseModal = ({ isOpen, onRequestClose, onAddExpense, editingExpense 
     const parsedPrice = parseFloat(price);
 
     if (!title || isNaN(parsedPrice) || parsedPrice <= 0 || !category || !date) {
-      return; // Validation handled by parent via notistack
+      return;
     }
 
     onAddExpense({ title, price: parsedPrice, category, date });

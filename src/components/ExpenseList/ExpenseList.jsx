@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import TransactionCard from '../TransactionCard/TransactionCard'; // Import the new TransactionCard component
+import TransactionCard from '../TransactionCard/TransactionCard';
 
-// Placeholder for MdChevronLeft
 const ChevronLeft = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg>
 );
 
-// Placeholder for MdChevronRight
 const ChevronRight = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"></path></svg>
 );
@@ -14,7 +12,7 @@ const ChevronRight = () => (
 
 const ExpenseList = ({ expenses, onDelete, onEdit }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const transactionsPerPage = 3; // Limit to 3 transactions per page
+  const transactionsPerPage = 3; 
 
   // Calculate total pages
   const totalPages = Math.ceil(expenses.length / transactionsPerPage);
@@ -24,7 +22,7 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
     if (currentPage > totalPages && totalPages > 0) {
       setCurrentPage(totalPages);
     } else if (totalPages === 0) {
-      setCurrentPage(1); // Reset to page 1 if no transactions
+      setCurrentPage(1); 
     }
   }, [expenses.length, totalPages, currentPage]);
 
@@ -60,12 +58,12 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
         />
       ))}
 
-      {totalPages > 1 && ( // Only show pagination if more than 1 page
+      {totalPages > 1 && ( 
         <div className="pagination-wrapper">
           <button onClick={handlePrevPage} disabled={currentPage === 1}>
             <ChevronLeft />
           </button>
-          <p>{currentPage}</p> {/* Changed from "Page X of Y" to just X as per CSS */}
+          <p>{currentPage}</p> 
           <button onClick={handleNextPage} disabled={currentPage === totalPages}>
             <ChevronRight />
           </button>

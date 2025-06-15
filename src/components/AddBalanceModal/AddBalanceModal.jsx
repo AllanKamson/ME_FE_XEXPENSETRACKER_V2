@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CustomModal from '../CustomModal/CustomModal'; // Import the custom modal
+import CustomModal from '../CustomModal/CustomModal';
 
 const AddBalanceModal = ({ isOpen, onRequestClose, onAddIncome }) => {
   const [incomeAmount, setIncomeAmount] = useState('');
@@ -9,7 +9,7 @@ const AddBalanceModal = ({ isOpen, onRequestClose, onAddIncome }) => {
     const amount = parseFloat(incomeAmount);
     if (!isNaN(amount) && amount > 0) {
       onAddIncome(amount);
-      setIncomeAmount(''); // Clear input
+      setIncomeAmount('');
     }
   };
 

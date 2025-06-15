@@ -1,5 +1,4 @@
 import React from 'react';
-// Import icons from react-icons
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { PiPizza, PiGift } from "react-icons/pi";
 import { MdOutlineModeEdit } from "react-icons/md";
@@ -16,7 +15,7 @@ const TransactionCard = ({ details, handleDelete, handleEdit }) => {
             case 'travel':
                 return <BsSuitcase2 />;
             default:
-                return <span>💳</span>; // Default card icon
+                return <span>💵</span>;
         }
     };
 

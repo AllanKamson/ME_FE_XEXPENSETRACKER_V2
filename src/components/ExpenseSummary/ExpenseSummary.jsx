@@ -2,7 +2,7 @@ import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 const ExpenseSummary = ({ expenses }) => {
-  const COLORS = ['#8884d8', '#82ca9d', '#ffc658']; // Food, Entertainment, Travel
+  const COLORS = ['#8884d8', '#82ca9d', '#ffc658'];
 
   const data = Object.entries(
     expenses.reduce((acc, expense) => {

@@ -14,7 +14,7 @@ const ExpenseTrends = ({ expenses }) => {
     return acc;
   }, {});
 
-  // Prepare data for the BarChart in the format Recharts expects: [{ name: 'Category', value: amount }]
+  // Data for the BarChart
   const chartData = [
     { name: 'Food', value: categoryTotals['Food'] || 0 },
     { name: 'Entertainment', value: categoryTotals['Entertainment'] || 0 },
@@ -30,19 +30,18 @@ const ExpenseTrends = ({ expenses }) => {
       <div className="bar-wrapper">
         <ResponsiveContainer width="100%" height={280}>
           <BarChart data={chartData} layout="vertical">
-            {/* XAxis for values, hidden as per screenshot */}
+            {/* XAxis for values */}
             <XAxis type="number" axisLine={false} tickLine={false} hide />
             {/* YAxis for categories */}
             <YAxis
               type="category"
-              width={100} // Adjust width as needed for category labels
+              width={100} 
               dataKey="name"
               axisLine={false}
               tickLine={false}
-              // Format tick labels with a hyphen, similar to the original screenshot
               tickFormatter={(value) => `${value}-`}
             />
-            <Bar dataKey="value" fill="#8884d8" barSize={25} /> {/* Default bar color */}
+            <Bar dataKey="value" fill="#8884d8" barSize={25} />
           </BarChart>
         </ResponsiveContainer>
       </div>

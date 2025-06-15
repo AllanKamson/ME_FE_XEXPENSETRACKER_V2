@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { SnackbarProvider, useSnackbar } from 'notistack';
-
-// Import all sub-components
 import WalletBalanceDisplay from './components/WalletBalanceDisplay/WalletBalanceDisplay';
 import AddBalanceModal from './components/AddBalanceModal/AddBalanceModal';
 import AddExpenseModal from './components/AddExpenseModal/AddExpenseModal';
@@ -142,7 +140,7 @@ function App() {
   );
 }
 
-// Wrap the App component with SnackbarProvider for notifications
+// SnackbarProvider for notifications
 function RootApp() {
   return (
     <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
