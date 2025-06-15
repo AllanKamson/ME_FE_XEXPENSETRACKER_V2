@@ -1,0 +1,525 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --primary-bg-color: #3B3B3B;
+    --secondary-bg-color: #9B9B9B;
+    --font-heading: "Ubuntu", sans-serif;
+    --font-body: "Open Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%; /* Ensure full width */
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--primary-bg-color); /* Set body background from variable */
+    color: #fff; /* Default text color */
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+    font-family: var(--font-heading);
+}
+
+p,
+a {
+    font-family: var(--font-body);
+}
+
+/* NotificationProvider Styles */
+.notifications-container {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.notification-item {
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.notification-info {
+    background: rgba(59, 130, 246, 0.9);
+    color: #fff;
+}
+
+.notification-success {
+    background: rgba(34, 197, 94, 0.9);
+    color: #fff;
+}
+
+.notification-warning {
+    background: rgba(251, 191, 36, 0.9);
+    color: #000;
+}
+
+.notification-error {
+    background: rgba(239, 68, 68, 0.9);
+    color: #fff;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* Translucent background */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 95%;
+    max-width: 572px;
+    height: fit-content;
+    max-height: 90vh;
+    background: rgba(239, 239, 239, 0.85); /* Slightly translucent white background */
+    border: 0;
+    border-radius: 15px;
+    padding: 2rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    box-sizing: border-box;
+    color: #333; /* Dark text for modal content */
+}
+
+/* Button Styles */
+.button {
+    background: #E3E3E3;
+    border: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 15px;
+    padding: 12px 30px;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.button-primary {
+    background: #F4BB4A; /* Amber color */
+    color: #FFFFFF;
+}
+
+.button-secondary {
+    background: #E3E3E3;
+    color: #000;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.button-success {
+    background: linear-gradient(90deg, #B5DC52, #89E148); /* Green gradient */
+    color: #fff;
+}
+
+.button-failure {
+    background: linear-gradient(90deg, #FF9595, #FF4747, #FF3838); /* Red gradient */
+    color: #fff;
+}
+
+.button-shadow {
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--secondary-bg-color); /* Grey background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 45px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+}
+
+.card-title {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.card-title span.success {
+    font-weight: 700;
+    color: #9DFF5B; /* Light green */
+}
+
+.card-title span.failure {
+    font-weight: 700;
+    color: #F4BB4A; /* Amber */
+}
+
+/* BarChart Styles (for ExpenseTrends) */
+.expense-chart h2 {
+    font-size: 28px;
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.bar-wrapper {
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+
+/* AddBalanceForm & ExpenseForm Styles */
+.form-wrapper h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333; /* Dark text for modal headings */
+}
+
+.form-wrapper .form-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+}
+
+.form-wrapper .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.form-wrapper input,
+.form-wrapper select {
+    background: #FBFBFB;
+    border: 0;
+    outline: 0;
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    padding: 12px;
+    border-radius: 15px;
+    font-family: var(--font-body);
+    box-sizing: border-box;
+    flex-grow: 1; /* For flex layout inputs */
+    width: 100%; /* For grid layout inputs/selects */
+}
+
+/* Pagination Styles */
+.pagination-wrapper {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px; /* Added margin to separate from transactions */
+}
+
+.pagination-wrapper p {
+    background: #43967B; /* Greenish background */
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem; /* Adjusted font size for "Page X of Y" */
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    color: #fff;
+}
+
+.pagination-wrapper button {
+    background: #F1F1F1;
+    color: #000;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    border: 0;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.pagination-wrapper button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* TransactionCard Styles */
+.transaction-card {
+    border-bottom: 1px solid #9B9B9B; /* Light grey border */
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-bottom: 24px;
+}
+
+.transaction-card-inner {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.transaction-card-icon {
+    background: #D9D9D9; /* Light grey circle background */
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Fixed size for consistent circle */
+    height: 40px;
+    color: #333; /* Dark icon color */
+}
+
+.transaction-card-info h5 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #000; /* Black text */
+    font-weight: 400;
+}
+
+.transaction-card-info p {
+    color: #9B9B9B; /* Grey text for date */
+    font-size: 1rem;
+}
+
+.transaction-card-price {
+    color: #F4BB4A; /* Amber for price */
+    font-weight: 700;
+}
+
+.transaction-card-button-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.transaction-card-button-wrapper button {
+    padding: 12px;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction-card-delete-button {
+    background: #FF3E3E; /* Red */
+}
+
+.transaction-card-edit-button {
+    background: #F4BB4A; /* Amber */
+}
+
+/* TransactionList Styles */
+.transactions-list-wrapper,
+.empty-transactions-wrapper {
+    background: #fff; /* White background */
+    border-radius: 10px;
+    padding: 24px;
+    color: #333; /* Dark text for list content */
+}
+
+.transactions-list-title {
+    font-size: 28px;
+    color: #fff; /* White text for title */
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Home Page Styles (Main App layout) */
+.home-container {
+    background: var(--primary-bg-color); /* Matches body background for consistency */
+    padding: 24px; /* Overall padding */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Take full width of root */
+    max-width: 1256px; /* Adhere to overall max width */
+    margin: 0 auto; /* Center the container */
+    box-sizing: border-box;
+}
+
+.home-container h1 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for Wallet, Expenses, Pie Chart */
+    gap: 32px;
+    padding: 48px;
+    background: #626262; /* Dark grey background */
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    margin-bottom: 32px;
+    width: 100%; /* Take full width of home-container */
+    box-sizing: border-box;
+}
+
+.transactions-display-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Transactions (2 parts) and Top Expenses (1 part) */
+    gap: 32px;
+    width: 100%; /* Take full width of home-container */
+    flex-grow: 1; /* Allow it to grow to fill remaining vertical space */
+}
+
+
+/* Media Queries */
+@media (max-width: 767px) {
+    /* Global/App */
+    .home-container h1 {
+        text-align: center;
+    }
+
+    /* NotificationProvider */
+    .notifications-container {
+        width: 90%; /* Adjust width for mobile */
+        left: 5%;
+        transform: translateX(0);
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 1rem; /* Smaller padding on mobile */
+    }
+
+    /* Card */
+    .card {
+        padding: 35px 10px;
+    }
+    .card-title {
+        font-size: 24px;
+    }
+
+    /* BarChart */
+    .expense-chart h2 {
+        text-align: center;
+    }
+
+    /* Forms */
+    .form-wrapper .form-flex {
+        flex-direction: column;
+    }
+    .form-wrapper .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Pagination */
+    .pagination-wrapper p,
+    .pagination-wrapper button {
+        width: 42px;
+        height: 42px;
+        font-size: 1.4rem;
+    }
+    .pagination-wrapper button {
+        font-size: 1.2rem; /* Adjusted for consistency */
+    }
+
+    /* TransactionCard */
+    .transaction-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .transaction-card-inner {
+        gap: 12px;
+    }
+    .transaction-card-inner:last-child {
+        padding-left: 3.3rem; /* Indent to align with icon */
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 8px; /* Added for spacing on mobile */
+    }
+    .transaction-card-info p {
+        font-size: 12px;
+    }
+    .transaction-card-button-wrapper button {
+        font-size: 1.2rem;
+        padding: 8px;
+        border-radius: 0.5rem;
+    }
+
+    /* TransactionList */
+    .transactions-list-title {
+        text-align: center;
+    }
+
+    /* Home Page */
+    .cards-wrapper {
+        padding: 16px;
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 24px;
+    }
+    .transactions-display-wrapper {
+        grid-template-columns: 1fr; /* Stack transaction sections vertically */
+    }
+}
