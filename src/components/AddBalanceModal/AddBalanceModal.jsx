@@ -31,8 +31,16 @@ const AddBalanceModal = ({ isOpen, onRequestClose, onAddIncome }) => {
             />
           </div>
           <div className="form-flex">
-            <button type="submit" className="button button-primary button-shadow">Add Balance</button>
-            <button type="button" className="button button-secondary button-shadow" onClick={onRequestClose}>Cancel</button>
+            <button 
+            type="submit" 
+            className="button button-primary button-shadow"
+            >Add Balance</button>
+            <button 
+            type="button" 
+            className="button button-secondary button-shadow" 
+            onClick={onRequestClose}
+            shouldCloseOnOverlayClick={true}
+            >Cancel</button>
           </div>
         </form>
       </div>

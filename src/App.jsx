@@ -132,7 +132,7 @@ function App() {
 
       <AddExpenseModal
         isOpen={isAddExpenseModalOpen}
-        onRequestClose={() => setIsAddExpenseModal(false)}
+        onRequestClose={() => setIsAddExpenseModalOpen(false)}
         onAddExpense={handleAddExpense}
         editingExpense={editingExpense}
       />

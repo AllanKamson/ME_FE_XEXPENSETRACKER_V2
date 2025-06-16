@@ -48,7 +48,9 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
   }
 
   return (
+    
     <div className="transactions-list-wrapper">
+      
       {currentTransactions.map((expense) => (
         <TransactionCard
           key={expense.id}

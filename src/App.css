@@ -239,6 +239,7 @@ a {
     flex-wrap: wrap;
     gap: 18px;
     justify-content: center;
+    margin-top: 5px;
 }
 
 .form-wrapper .form-grid {
@@ -388,7 +389,7 @@ a {
 
 .transactions-list-title {
     font-size: 28px;
-    color: #fff; 
+    /* color: #fff;  */
     font-style: italic;
     margin-bottom: 10px;
 }
@@ -430,7 +431,7 @@ a {
     grid-template-columns: 2fr 1fr;
     gap: 32px;
     width: 100%;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 
@@ -469,6 +470,7 @@ a {
     /* Forms */
     .form-wrapper .form-flex {
         flex-direction: column;
+        align-items: center;
     }
     .form-wrapper .form-grid {
         grid-template-columns: 1fr;
